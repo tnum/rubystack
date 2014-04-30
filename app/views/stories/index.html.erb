@@ -6,7 +6,7 @@
 		<!-- we are using 2 helpers hence the brackets  -->
 		<p>
 			<%= link_to pluralize(story.comments.size, "comment"), story_path(story) %>
-			<%= link_to "Upvote", story_votes_path(story), method: :post %>
+			<%= link_to  pluralize(story.votes.size, "Upvote"), story_votes_path(story), method: :post %>
 		</p>
 	</div>
 
