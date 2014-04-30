@@ -9,9 +9,18 @@ class VotesController < ApplicationController
 		# make a new vote on this story
 		@vote = @story.votes.new
 
-		@vote.save
+		# save the ip address to the vote
+		@vote.ip_address = request.ip
 
-		flash[:sucess] = "You have voted this story up"
+		if @vote.save
+
+		    flash[:sucess] = "You have voted this story up"
+
+		else
+
+			flash[:error] = "You can't vote up twice"
+
+		end
 
 		redirect_to story_path(@story)
 	

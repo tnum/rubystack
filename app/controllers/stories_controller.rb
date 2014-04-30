@@ -26,7 +26,7 @@
 			@stories = Story.order("created_at desc")
 		else
 			# sort by top
-			@stories = Story.order("votes_count desc, title asc")
+			@stories = Story.order("votes_count desc, title desc")
 			
 		end
 
